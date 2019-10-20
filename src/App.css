@@ -1,22 +1,17 @@
-.App {
-  text-align: center;
+.headbackground {
+  background-color: #0070fe;
+  padding: 3% 3% 3% 3%
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+  color: #ffffff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/** Task.js **/
+.marg {
+  margin-right: 25%
 }
 
-.App-link {
-  color: #09d3ac;
-}
+
+
