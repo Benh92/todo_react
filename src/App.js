@@ -16,6 +16,9 @@ class App extends React.Component {
           <i class="fab fa-cloudversify fa-5x iconnav"></i> 
           </nav>
         </div>
+        <div>
+        <h4> Add your task below... </h4>
+        </div>
         <div className="formplacement">
          <AddTask/>
          </div>
