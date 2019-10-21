@@ -1,9 +1,13 @@
-.headbackground {
+/* .headbackground {
   background-color: #0070fe;
   padding: 3% 3% 3% 3%
+} */
+
+h2 {
+  color: #ffffff;
 }
 
-h1 {
+h5 {
   color: #ffffff;
 }
 
@@ -14,4 +18,34 @@ h1 {
 }
 
 
+/* Making the form more central */
+.formplacement {
+  margin: 5% 10% 1% 10%
+}
 
+
+/* Nav Bar CSS */
+.navbar {
+  background-color: #007bff;
+  padding: 2% 2% 2% 2%;
+}
+
+.iconnav {
+  color: #ffffff;
+}
+
+.iconcard {
+  color: #007bff;
+}
+
+
+/* Icon floating */ 
+.floatright {
+  float: right;
+  margin: 4px
+}
+
+/* Card header color */
+.cardheader {
+  background-color: #007bff;
+}
