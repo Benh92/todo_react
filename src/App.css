@@ -1,8 +1,3 @@
-/* .headbackground {
-  background-color: #0070fe;
-  padding: 3% 3% 3% 3%
-} */
-
 h2 {
   color: #ffffff;
 }
@@ -46,6 +41,8 @@ h5 {
 }
 
 /* Card header color */
+
 .cardheader {
   background-color: #007bff;
 }
+

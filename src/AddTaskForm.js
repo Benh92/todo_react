@@ -9,10 +9,6 @@ class AddTaskForm extends React.Component {
         <input type="text" className="form-control"/>
       </div>
       <div className="form-group">
-        <label> Task Sub-Header</label>
-        <input type="text" className="form-control"/>
-      </div>
-      <div className="form-group">
         <label> Task Description</label>
         <input type="text" className="form-control"/>
       </div>
