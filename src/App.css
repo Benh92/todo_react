@@ -6,6 +6,10 @@ h5 {
   color: #ffffff;
 }
 
+h6 {
+  color: #ffffff
+}
+
 
 /** Task.js **/
 .marg {
@@ -21,7 +25,7 @@ h5 {
 
 /* Nav Bar CSS */
 .navbar {
-  background-color: #007bff;
+  background-color: #4da3ff;
   padding: 2% 2% 2% 2%;
 }
 
@@ -30,7 +34,7 @@ h5 {
 }
 
 .iconcard {
-  color: #007bff;
+  color: #4da3ff;
 }
 
 
@@ -43,6 +47,8 @@ h5 {
 /* Card header color */
 
 .cardheader {
-  background-color: #007bff;
+  background-color: #4da3ff;
 }
+
+
 

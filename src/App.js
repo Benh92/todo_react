@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskCount from './TaskCount';
+import uuid from "uuid/v4";
 import Task from './Task';
 import './App.css';
 import CompleteCount from './CompleteCount';
@@ -12,31 +13,46 @@ class App extends React.Component {
       {
         taskheader: "Buy Batteries",
         text: "Aisle 5 of my favourite shop.",
-        completed: true, date: "2019-10-21", id: 2
+        completed: true, date: "2019-10-21", id: uuid()
       },
       {
         taskheader: "Buy Twinkies",
         text: "Pick Twinkies up from speciality shop.",
-        completed: true, date: "2019-10-21", id: 3
+        completed: true, date: "2019-10-21", id: uuid()
       },
       {
         taskheader: "Walk The Cat",
         text: "Must be walked seperately from the Dog.",
-        completed: false, date: "2019-10-26", id: 4
+        completed: false, date: "2019-10-26", id: uuid()
       },
       {
         taskheader: "Walk The dog",
         text: "Must not be walked with the Cat.",
-        completed: false, date: "2019-10-26", id: 6
+        completed: false, date: "2019-10-26", id: uuid()
       },
       {
         taskheader: "Bake a cake",
         text: "Make sure to bake a cake for visitors",
-        completed: false, date: "2019-10-26", id: 8
+        completed: false, date: "2019-10-26", id: uuid()
       }
     ]
   }
 
+  addTask = (taskHeader, taskDescription) => {
+    const newTask ={
+      taskheader: taskHeader,
+      text: taskDescription,
+      completed: false,
+      date: "26-10-2020",
+      id: uuid()
+    };
+  
+  const taskscopy = this.state.tasks.slice();
+  taskscopy.push(newTask);
+    this.setState({
+      tasks: taskscopy
+    })
+  }
 
   render() {
     const completedItems = this.state.tasks.filter(item => {
@@ -57,12 +73,11 @@ class App extends React.Component {
       <section>
         <div>
           <nav className="navbar">
-            <i class="fab fa-cloudversify fa-5x iconnav"></i>
-            <h4 className="iconnav">Cloud-List</h4>
+            <i className="fab fa-cloudversify fa-5x iconnav"></i>
           </nav>
         </div>
         <div className="formplacement">
-          <AddTask />
+          <AddTask addTaskFunc={this.addTask}/>
         </div>
         <br />
         <div className="alert alert-primary">
@@ -72,7 +87,7 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {notCompleteItems.map(item => {
-              return <Task key={item.id} text={item.text} completed={item.complete} taskheader={item.taskheader} />
+              return <Task key={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
             })}
 
           </div>
@@ -83,14 +98,14 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {completedItems.map(item => {
-              return <Task key={item.id} text={item.text} completed={item.complete} taskheader={item.taskheader} />
+              return <Task key={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
             })}
           </div>
         </div>
       </section>
     );
   }
-}
+  }
 
 
 export default App;
