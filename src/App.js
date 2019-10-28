@@ -87,7 +87,7 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {notCompleteItems.map(item => {
-              return <Task key={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
+              return <Task key={item.id} taskId={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
             })}
 
           </div>
@@ -98,7 +98,7 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {completedItems.map(item => {
-              return <Task key={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
+              return <Task key={item.id} taskId={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
             })}
           </div>
         </div>
