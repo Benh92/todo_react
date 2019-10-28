@@ -27,9 +27,6 @@ class AddTaskForm extends React.Component {
     })
     }
 
-mouseOverButton = () => {
-  alert('Hello!');
-}
 
   render() {
     return (

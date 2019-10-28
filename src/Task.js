@@ -3,7 +3,7 @@ import React from "react";
 class Task extends React.Component {
 
 trashClicked = () => {
-alert(this.props.taskId)
+this.props.deleteTaskFunc(this.props.taskId);
 }
 
     render() {

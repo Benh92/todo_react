@@ -39,19 +39,31 @@ class App extends React.Component {
   }
 
   addTask = (taskHeader, taskDescription) => {
-    const newTask ={
+    const newTask = {
       taskheader: taskHeader,
       text: taskDescription,
       completed: false,
       date: "26-10-2020",
       id: uuid()
     };
-  
-  const taskscopy = this.state.tasks.slice();
-  taskscopy.push(newTask);
+
+    const taskscopy = this.state.tasks.slice();
+    taskscopy.push(newTask);
     this.setState({
       tasks: taskscopy
     })
+  }
+
+  deleteTask = (taskId) => {
+const existingTasks = this.state.tasks
+const filteredTasks = existingTasks.filter(function(item){
+ return item.id !== taskId;
+});
+
+this.setState(
+  {tasks: filteredTasks}
+);
+
   }
 
   render() {
@@ -77,7 +89,7 @@ class App extends React.Component {
           </nav>
         </div>
         <div className="formplacement">
-          <AddTask addTaskFunc={this.addTask}/>
+          <AddTask addTaskFunc={this.addTask} />
         </div>
         <br />
         <div className="alert alert-primary">
@@ -87,7 +99,7 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {notCompleteItems.map(item => {
-              return <Task key={item.id} taskId={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
+              return <Task deleteTaskFunc={this.deleteTask} key={item.id} taskId={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
             })}
 
           </div>
@@ -98,14 +110,14 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {completedItems.map(item => {
-              return <Task key={item.id} taskId={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
+              return <Task deleteTaskFunc={this.deleteTask} key={item.id} taskId={item.id} text={item.text} completed={item.complete} date={item.date} taskheader={item.taskheader} />
             })}
           </div>
         </div>
       </section>
     );
   }
-  }
+}
 
 
 export default App;
