@@ -4,7 +4,8 @@ class AddTaskForm extends React.Component {
 
   state = {
     newTaskHeader: "",
-    newTaskDescription: ""
+    newTaskDescription: "",
+    newDueDate: ""
   }
 
   updateTaskHeader = (event) => {
@@ -19,11 +20,19 @@ class AddTaskForm extends React.Component {
     })
   }
 
-  handleClick = () => {
-    this.props.addTaskFunc(this.state.newTaskHeader, this.state.newTaskDescription)
+  updateDueDate = (event) => {
+    this.setState({
+      newDueDate: event.target.value
+    })
+  }
+
+  handleClick = (e) => {
+    e.preventDefault()
+    this.props.addTaskFunc(this.state.newTaskHeader, this.state.newTaskDescription, this.state.newDueDate)
     this.setState({
     newTaskHeader: "",
-    newTaskDescription: ""
+    newTaskDescription: "",
+    newDueDate: Date,
     })
     }
 
@@ -43,7 +52,8 @@ class AddTaskForm extends React.Component {
         </div>
         <div className="form-group">
           <label> Due Date</label>
-          <input type="date" className="form-control" />
+          <input type="date" className="form-control" value={this.state.newDueDate}
+          onChange={this.updateDueDate}/>
         </div>
         <button type="submit" className="btn btn-primary" onClick={this.handleClick}>Add Task</button>
       </form>
