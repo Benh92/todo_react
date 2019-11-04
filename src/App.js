@@ -66,6 +66,32 @@ class App extends React.Component {
 
   }
 
+  completeTask = (taskId) => {
+const completedTask = this.state.tasks.map(task => {
+  if (task.id === taskId){
+  task.completed = true;
+}
+return task;
+});
+this.setState({
+  tasks: completedTask
+})
+
+  }
+
+  undoTask = (taskId) => {
+    const completedTask = this.state.tasks.map(task => {
+      if (task.id === taskId){
+      task.completed = false;
+    }
+    return task;
+    });
+    this.setState({
+      tasks: completedTask
+    })
+    
+      }
+
 
   render() {
     const completedItems = this.state.tasks.filter(item => {
@@ -100,7 +126,7 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {notCompleteItems.map(item => {
-              return <Task deleteTaskFunc={this.deleteTask} key={item.id} taskId={item.id} text={item.text} completed={item.complete} dueDate={item.dueDate} taskheader={item.taskheader} />
+              return <Task completeTaskFunc={this.completeTask} deleteTaskFunc={this.deleteTask} key={item.id} taskId={item.id} text={item.text} completed={item.completed} dueDate={item.dueDate} taskheader={item.taskheader} />
             })}
 
           </div>
@@ -111,7 +137,7 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             {completedItems.map(item => {
-              return <Task deleteTaskFunc={this.deleteTask} key={item.id} taskId={item.id} text={item.text} completed={item.complete} dueDate={item.dueDate} taskheader={item.taskheader} />
+              return <Task undoTaskFunc={this.undoTask} deleteTaskFunc={this.deleteTask} key={item.id} taskId={item.id} text={item.text} completed={item.completed} dueDate={item.dueDate} taskheader={item.taskheader} />
             })}
           </div>
         </div>

@@ -6,6 +6,13 @@ class Task extends React.Component {
         this.props.deleteTaskFunc(this.props.taskId);
     }
 
+    checkClicked = () => {
+        this.props.completeTaskFunc(this.props.taskId);
+    }
+
+    undoClicked = () => {
+        this.props.undoTaskFunc(this.props.taskId);
+    }
 
     render() {
         return (
@@ -17,7 +24,7 @@ class Task extends React.Component {
                         <i className="fas fa-trash floatright iconcard" onClick={this.trashClicked} />
                         {this.props.completed
                             ?
-                            <i className="fas fa-undo"></i> :
+                            <i className="fas fa-undo iconcard" onClick={this.undoClicked}></i> :
                             <i className="fas fa-check iconcard" onClick={this.checkClicked}></i>}
                     </div>
                 </div>
