@@ -38,6 +38,7 @@ class App extends React.Component {
     ]
   }
 
+
   addTask = (taskHeader, taskDescription, dueDate) => {
     const newTask = {
       taskheader: taskHeader,
@@ -67,30 +68,30 @@ class App extends React.Component {
   }
 
   completeTask = (taskId) => {
-const completedTask = this.state.tasks.map(task => {
-  if (task.id === taskId){
-  task.completed = true;
-}
-return task;
-});
-this.setState({
-  tasks: completedTask
-})
+    const completedTask = this.state.tasks.map(task => {
+      if (task.id === taskId) {
+        task.completed = true;
+      }
+      return task;
+    });
+    this.setState({
+      tasks: completedTask
+    })
 
   }
 
   undoTask = (taskId) => {
     const completedTask = this.state.tasks.map(task => {
-      if (task.id === taskId){
-      task.completed = false;
-    }
-    return task;
+      if (task.id === taskId) {
+        task.completed = false;
+      }
+      return task;
     });
     this.setState({
       tasks: completedTask
     })
-    
-      }
+
+  }
 
 
   render() {
